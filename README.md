@@ -9,6 +9,7 @@ All the scripts search on system folders to find the binary. For the Programfile
 
 |Binary|Scripts|Variable|
 |------|-------|--------|
+|appcert.exe|[Get-FullFilenameOfAppCertExe.ps1](./Get-FullFilenameOfAppCertExe.ps1)|FullFilenameOfAppCertExe|
 |signtool.exe|[Get-FullFilenameOfSignToolExe.ps1](./Get-FullFilenameOfSignToolExe.ps1)|FullFilenameOfSignToolExe|
 
 # References
