@@ -9,7 +9,7 @@ All the scripts search on system folders to find the binary. Additional can the 
 
 |Binary|Scripts|Variable|
 |------|-------|--------|
-|signtool.exe|Get-FullFilenameOfSignToolExe.ps1|FullFilenameOfSignToolExe|
+|signtool.exe|[Get-FullFilenameOfSignToolExe.ps1](./Get-FullFilenameOfSignToolExe.ps1)|FullFilenameOfSignToolExe|
 
 # References
 
