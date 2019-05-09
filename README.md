@@ -3,6 +3,14 @@ Powershell (PS1) scripts, which search for exe-binaries on a Windows operation s
 
 *Optional*: Add set the found path as environment variable for VSTS, TFS or DevOps Server build system.
 
+# Scripts
+
+All the scripts search on system folders to find the binary. Additional can the Parameter ```CheckCurrentDirectory``` be set to ```$true```, the the current folder will be included in the serach. Default Value is ```$false```.   
+
+|Binary|Scripts|Variable|
+|------|-------|--------|
+|signtool.exe|Get-FullFilenameOfSignToolExe.ps1|FullFilenameOfSignToolExe|
+
 # References
 
 ## Build and Release Variables on VSTS, TFS or Azure DevOps
