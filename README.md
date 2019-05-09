@@ -5,7 +5,7 @@ Powershell (PS1) scripts, which search for exe-binaries on a Windows operation s
 
 # Scripts
 
-All the scripts search on system folders to find the binary. Additional can the Parameter ```CheckCurrentDirectory``` be set to ```$true```, the the current folder will be included in the serach. Default Value is ```$false```.   
+All the scripts search on system folders to find the binary. For the Programfiles the scripts cover 32-bit and 64-bit. Additional can the Parameter ```CheckCurrentDirectory``` be set to ```$true```, the the current folder will be included in the serach. Default Value is ```$false```.  
 
 |Binary|Scripts|Variable|
 |------|-------|--------|
