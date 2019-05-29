@@ -12,7 +12,7 @@ if($CheckCurrentDirectory) {
 }
 foreach ($folder in $arrProgramFilesFolders) {
 	$arrMsBuild += "$folder\Microsoft Visual Studio\2017\Enterprise\MSBuild\15.0\Bin\msbuild.exe"
-    $arrMsBuild += "$folder\Microsoft Visual Studio\2019\Enterprise\MSBuild\Current\Bin\MSBuild.exe"
+        $arrMsBuild += "$folder\Microsoft Visual Studio\2019\Enterprise\MSBuild\Current\Bin\MSBuild.exe"
 }    
 
 foreach ($exeFile in $arrMsBuild)
