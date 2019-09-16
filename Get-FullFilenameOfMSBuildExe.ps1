@@ -44,10 +44,11 @@ function Get-FullFilenameOfMSBuildExe()
         { 
             Write-Host ("##vso[task.setvariable variable=FullFilenameOfMsBuildExe;]$exeFile")
             Write-Host "MsBuild.exe was found here: [ $exeFile ] and set as env variable 'FullFilenameOfMsBuildExe'" -ForegroundColor Green
-            return
+            return $exeFile
         }
     }
 
     Write-Host "MsBuild.exe not found." -ForegroundColor Red
     throw [System.IO.FileNotFoundException] "MsBuild.exe not found!"
+    return ""
 }

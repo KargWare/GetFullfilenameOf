@@ -48,10 +48,11 @@ function Get-FullFilenameOfMSBuildExe()
         { 
             Write-Host ("##vso[task.setvariable variable=FullFilenameOfSignToolExe;]$exeFile")
             Write-Host "SignTool.exe was found here: [ $exeFile ] and set as env variable 'FullFilenameOfSignToolExe'" -ForegroundColor Green
-            return
+            return $exeFile
         }
     }
 
     Write-Host "SignTool.exe not found. Check Windows 10 SDK needed - https://go.microsoft.com/fwlink/p/?LinkID=822845 to get a SDK" -ForegroundColor Red
     throw [System.IO.FileNotFoundException] "SignTool.exe not found!"
+    return ""
 }

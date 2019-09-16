@@ -48,7 +48,7 @@ function Get-FullFilenameOfMakeCertExe()
         { 
             Write-Host ("##vso[task.setvariable variable=FullFilenameOfMakeCertExe;]$exeFile")
             Write-Host "makecert.exe was found here: [ $exeFile ] and set as env variable 'FullFilenameOfMakeCertExe'" -ForegroundColor Green
-            return exeFile
+            return $exeFile
         }
     }
 

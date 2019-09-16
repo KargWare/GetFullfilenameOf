@@ -44,10 +44,11 @@ function Get-FullFilenameOfCodeCoverageExe()
         { 
             Write-Host ("##vso[task.setvariable variable=FullFilenameOfCodeCoverageExe;]$exeFile")
             Write-Host "CodeCoverage.exe was found here: [ $exeFile ] and set as env variable 'FullFilenameOfCodeCoverageExe'" -ForegroundColor Green
-            return
+            return $exeFile
         }
     }
 
     Write-Host "CodeCoverage.exe not found. Please install Visual Studio and try again." -ForegroundColor Red
     throw [System.IO.FileNotFoundException] "CodeCoverage.exe not found!"
+    return ""
 }
