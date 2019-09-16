@@ -1,9 +1,12 @@
-# GetFullfilenameOf
+# GetFullFilenameOf
+
 Powershell (PS1) scripts, which search for exe-binaries on a Windows operation systems.
+
+The scripts will be available as Powershell Module `GetFullFilenameOf` on the [Powershell Gallery](https://www.powershellgallery.com/).
 
 *Optional*: Add set the found path as environment variable for VSTS, TFS or DevOps Server build system.
 
-# Scripts
+## Scripts
 
 All the scripts search on system folders to find the binary. For the Programfiles the scripts cover 32-bit and 64-bit. Additional can the Parameter ```CheckCurrentDirectory``` be set to ```$true```, the the current folder will be included in the serach. Default Value is ```$false```.  
 
@@ -14,9 +17,52 @@ All the scripts search on system folders to find the binary. For the Programfile
 |CodeCoverage.exe|[Get-FullFilenameOfCodeCoverageExe.ps1](./Get-FullFilenameOfCodeCoverageExe.ps1)|FullFilenameOfCodeCoverageExe|
 |SignTool.exe|[Get-FullFilenameOfSignToolExe.ps1](./Get-FullFilenameOfSignToolExe.ps1)|FullFilenameOfSignToolExe|
 
-# References
+## Modules
 
-## Build and Release Variables on VSTS, TFS or Azure DevOps
+[Microsoft Docs: Create PS1-Module](https://docs.microsoft.com/en-us/powershell/developer/module/how-to-write-a-powershell-module-manifest)
+[Writing Help for PowerShell Modules](https://docs.microsoft.com/en-us/powershell/developer/module/writing-help-for-windows-powershell-modules)
+
+```powershell
+New-ModuleManifest GetFullFilenameOf.psd1
+Test-ModuleManifest GetFullFilenameOf.psd1
+Import-Module GetFullFilenameOf.psd1
+```
+
+[Microsoft Docs: Publish PS1-Module](https://docs.microsoft.com/en-us/powershell/module/powershellget/publish-module?view=powershell-6)
+
+```powershell
+Publish-Module -Name "GetFullFilenameOf" -NuGetApiKey "xxxxxxxx-yyyy-yyyy-yyyy-xxxxxxxxxxxx"
+```
+
+## Tests
+
+[Pester](https://github.com/pester/Pester) is used to run the Powershell tests.
+
+PluralSight [01](file:///D:/Pluralsight/Testing%20PowerShell%20with%20Pester/powershell-testing-pester/01/introduction-to-unit-testing-slides.pdf)
+
+Types of Testing
+
+* Unit Tests - Tests a single function or method, independent from all other tests
+* Integration Tests - Test the combination of tests. Maybe some environment is needed
+* Acceptance Tests - Happy Day or Edge Case Tests, can also be driven by a reported bug
+
+Install the Test Infrastructure (PackageManagement, Pester and list the commands of pester)
+```powershell
+$PSVersionTable
+Import-Module PackageManagement
+Install-Module Pester -Force
+Get-Command -Module Pester
+Get-Module Pester | Select Version
+Get-Module Pester | Select Version -ExpandProperty Version
+Get-Module Pester | Select Version | Format-Table -HideTableHeaders
+```
+
+## References
+
+### Microsoft Tools 
+[VSwhere](https://github.com/microsoft/vswhere/wiki/Examples)  
+
+### Build and Release Variables on VSTS, TFS or Azure DevOps
 [MSDN - Custom Variables](https://docs.microsoft.com/en-us/azure/devops/pipelines/release/variables?view=azure-devops&tabs=powershell)
 
 Set the value ```crushed tomatoes``` to the variable named ```sauce``` in Powershell as VSTS, TFS or Azure DevOps variable.  
