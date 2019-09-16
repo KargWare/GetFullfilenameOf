@@ -34,7 +34,7 @@ Copyright = '(c) n13.org. All rights reserved.'
 Description = 'Collection scripts which finds a path (fullfilename) of an exe on a Windows System'
 
 # Minimum version of the PowerShell engine required by this module
-PowerShellVersion = '5.0'
+PowerShellVersion = '5.1'
 
 # Name of the PowerShell host required by this module
 # PowerShellHostName = ''
@@ -49,7 +49,7 @@ DotNetFrameworkVersion = '2.0'
 CLRVersion = '2.0.50727'
 
 # Processor architecture (None, X86, Amd64) required by this module
-# ProcessorArchitecture = ''
+ProcessorArchitecture = 'None'
 
 # Modules that must be imported into the global environment prior to importing this module
 # RequiredModules = @()
