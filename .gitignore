@@ -1,0 +1,19 @@
+# MSTest test Results
+[Tt]est[Rr]esult*/
+[Bb]uild[Ll]og.*
+
+# NUNIT
+*.VisualState.xml
+TestResult.xml
+
+# DotCover is a Code Coverage Tool
+*.dotCover
+
+# Visual Studio code coverage results
+*.coverage
+*.coveragexml
+
+#SonarQube
+.[Ss]onar/
+.[Ss]onar[Ll]int/
+[Ss]onar[Ll]int.json
