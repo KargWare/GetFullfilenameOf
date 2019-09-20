@@ -47,6 +47,7 @@ Types of Testing
 * Acceptance Tests - Happy Day or Edge Case Tests, can also be driven by a reported bug
 
 Install the Test Infrastructure (PackageManagement, Pester and list the commands of pester)
+
 ```powershell
 $PSVersionTable
 Import-Module PackageManagement
@@ -55,6 +56,44 @@ Get-Command -Module Pester
 Get-Module Pester | Select Version
 Get-Module Pester | Select Version -ExpandProperty Version
 Get-Module Pester | Select Version | Format-Table -HideTableHeaders
+```
+
+## Environment Variables
+
+### Environment Variables on Powershell
+
+### Environment Variables on Terminal
+
+Set the value of an environment variable `MyEnvVar` on an elevated Terminal (System-wide)
+
+```cmd
+setx /M MyEnvVar "My value with spaces"
+```
+
+**Hint** Be careful with `SETX`, it will truncate your variable value to 1024 chars! Very dangerous when manipulating e.g. %path%
+
+Set the value of an environment variable `MyEnvVar` on an Terminal (User-scope)
+
+```cmd
+setx MyEnvVar "My value with spaces"
+```
+
+Show the value of an environment variable `MyEnvVar` on Terminal
+
+```cmd
+echo %MyEnvVar%
+```
+
+Delete an environment variable `MyEnvVar` on Terminal (User-scope)
+
+```cmd
+reg delete "HKCU\Environment" /v MyEnvVar /f
+```
+
+Delete an environment variable `MyEnvVar` on an elevated Terminal (System-wide)
+
+```cmd
+reg delete "HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\Environment" /F /V MyEnvVar
 ```
 
 ## References
