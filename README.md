@@ -60,17 +60,49 @@ Get-Module Pester | Select Version | Format-Table -HideTableHeaders
 
 ## Environment Variables
 
+Environment variables can have the scope `machine`, `user` and `process`.  
+
 ### Environment Variables on Powershell
 
+Set the value of an environment variable `MyEnvVar` on an elevated Powershell (System-wide)
+
+```powershell
+[System.Environment]::SetEnvironmentVariable('MyEnvVar', 'My value with spaces', [System.EnvironmentVariableTarget]::Machine)
+```
+
+Set the value of an environment variable `MyEnvVar` on an Powershell (User-scope)
+
+```powershell
+[System.Environment]::SetEnvironmentVariable('MyEnvVar', 'My value with spaces', [System.EnvironmentVariableTarget]::User)
+```
+
+Show the value of an environment variable `MyEnvVar` on Powershell
+
+```powershell
+write-host ${Env:\MyEnvVar}
+```
+
+Delete an environment variable `MyEnvVar` on an elevated Powershell (System-wide)
+
+```powershell
+[System.Environment]::SetEnvironmentVariable('MyEnvVar', $null, [System.EnvironmentVariableTarget]::Machine)
+```
+
+Delete an environment variable `MyEnvVar` on Powershell (User-scope)
+
+```powershell
+[System.Environment]::SetEnvironmentVariable('MyEnvVar', $null, [System.EnvironmentVariableTarget]::User)
+```
+
 ### Environment Variables on Terminal
+
+**Hint** Be careful with `SETX`, it will truncate your variable value to 1024 chars! Very dangerous when manipulating e.g. %path%
 
 Set the value of an environment variable `MyEnvVar` on an elevated Terminal (System-wide)
 
 ```cmd
 setx /M MyEnvVar "My value with spaces"
 ```
-
-**Hint** Be careful with `SETX`, it will truncate your variable value to 1024 chars! Very dangerous when manipulating e.g. %path%
 
 Set the value of an environment variable `MyEnvVar` on an Terminal (User-scope)
 
@@ -84,16 +116,16 @@ Show the value of an environment variable `MyEnvVar` on Terminal
 echo %MyEnvVar%
 ```
 
-Delete an environment variable `MyEnvVar` on Terminal (User-scope)
-
-```cmd
-reg delete "HKCU\Environment" /v MyEnvVar /f
-```
-
 Delete an environment variable `MyEnvVar` on an elevated Terminal (System-wide)
 
 ```cmd
 reg delete "HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\Environment" /F /V MyEnvVar
+```
+
+Delete an environment variable `MyEnvVar` on Terminal (User-scope)
+
+```cmd
+reg delete "HKCU\Environment" /v MyEnvVar /f
 ```
 
 ## References
