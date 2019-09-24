@@ -15,8 +15,7 @@
   $exeFile = Get-FullFilenameOfAppCertExe
 
   .EXAMPLE
-  $exeFile = Get-FullFilenameOfAppCertExe -CheckCurrentDirectory $true
-  
+  $exeFile = Get-FullFilenameOfAppCertExe -CheckCurrentDirectory $true 
 #>
 
 function Get-FullFilenameOfMSBuildExe()
@@ -34,8 +33,8 @@ function Get-FullFilenameOfMSBuildExe()
         $arrMsBuild += "msbuild.exe"
     }
     foreach ($folder in $arrProgramFilesFolders) {
-        $arrMsBuild += "$folder\Microsoft Visual Studio\2017\Enterprise\MSBuild\15.0\Bin\msbuild.exe"
-            $arrMsBuild += "$folder\Microsoft Visual Studio\2019\Enterprise\MSBuild\Current\Bin\MSBuild.exe"
+        $arrMsBuild += "$folder\Microsoft Visual Studio\2019\Enterprise\MSBuild\Current\Bin\MSBuild.exe"
+        $arrMsBuild += "$folder\Microsoft Visual Studio\2017\Enterprise\MSBuild\15.0\Bin\msbuild.exe"        
     }    
 
     foreach ($exeFile in $arrMsBuild)
@@ -52,3 +51,5 @@ function Get-FullFilenameOfMSBuildExe()
     throw [System.IO.FileNotFoundException] "MsBuild.exe not found!"
     return ""
 }
+
+#Get-FullFilenameOfMSBuildExe -CheckCurrentDirectory $true

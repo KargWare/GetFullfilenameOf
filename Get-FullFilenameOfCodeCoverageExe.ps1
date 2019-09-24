@@ -16,7 +16,6 @@
 
   .EXAMPLE
   $exeFile = Get-FullFilenameOfAppCertExe -CheckCurrentDirectory $true
-  
 #>
 
 function Get-FullFilenameOfCodeCoverageExe()
@@ -34,6 +33,7 @@ function Get-FullFilenameOfCodeCoverageExe()
         $arrAppCert += "CodeCoverage.exe"
     }
     foreach ($folder in $arrProgramFilesFolders) {
+        $arrAppCert += "$folder\Microsoft Visual Studio\2019\Enterprise\Team Tools\Dynamic Code Coverage Tools\CodeCoverage.exe"
         $arrAppCert += "$folder\Microsoft Visual Studio\2017\Enterprise\Team Tools\Dynamic Code Coverage Tools\CodeCoverage.exe"
         $arrAppCert += "$folder\Microsoft Visual Studio 14.0\Team Tools\Dynamic Code Coverage Tools\CodeCoverage.exe"
     }    
@@ -52,3 +52,5 @@ function Get-FullFilenameOfCodeCoverageExe()
     throw [System.IO.FileNotFoundException] "CodeCoverage.exe not found!"
     return ""
 }
+
+#Get-FullFilenameOfCodeCoverageExe -CheckCurrentDirectory $true

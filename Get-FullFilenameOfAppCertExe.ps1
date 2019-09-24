@@ -16,7 +16,6 @@
 
   .EXAMPLE
   $exeFile = Get-FullFilenameOfAppCertExe -CheckCurrentDirectory $true
-  
 #>
 
 function Get-FullFilenameOfAppCertExe()
@@ -53,3 +52,5 @@ function Get-FullFilenameOfAppCertExe()
     throw [System.IO.FileNotFoundException] "AppCert.exe not found!"
     return ""
 }
+
+#Get-FullFilenameOfAppCertExe -CheckCurrentDirectory $true

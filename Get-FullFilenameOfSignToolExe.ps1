@@ -16,10 +16,9 @@
 
   .EXAMPLE
   $exeFile = Get-FullFilenameOfAppCertExe -CheckCurrentDirectory $true
-  
 #>
 
-function Get-FullFilenameOfMSBuildExe()
+function Get-FullFilenameOfSignToolExe()
 {
     [CmdletBinding()]
     param (
@@ -56,3 +55,5 @@ function Get-FullFilenameOfMSBuildExe()
     throw [System.IO.FileNotFoundException] "SignTool.exe not found!"
     return ""
 }
+
+# Get-FullFilenameOfSignToolExe -CheckCurrentDirectory $true
