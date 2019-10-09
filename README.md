@@ -1,5 +1,7 @@
 # GetFullFilenameOf
 
+__TOC__
+
 Powershell (PS1) scripts, which search for exe-binaries on a Windows operation systems.
 
 The scripts will be available as Powershell Module `GetFullFilenameOf` on the [Powershell Gallery](https://www.powershellgallery.com/).
